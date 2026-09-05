@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>WB Class 9 Notes</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      color: #222;
+      transition: 0.3s;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      padding: 35px 20px;
+      text-align: center;
+      border-radius: 0 0 25px 25px;
+    }
+
+    header h1 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .search {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 14px;
+      margin: 15px 0 25px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+      font-size: 16px;
+      outline: none;
+    }
+
+    .subjects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    .subject {
+      background: white;
+      padding: 22px 15px;
+      border-radius: 18px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: 0.2s;
+    }
+
+    .subject:hover {
+      transform: translateY(-5px);
+    }
+
+    .subject .icon {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .subject h3 {
+      font-size: 17px;
+    }
+
+    .notes {
+      margin-top: 30px;
+    }
+
+    .notes h2 {
+      margin-bottom: 15px;
+    }
+
+    .note-card {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      margin-bottom: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+    }
+
+    .note-card h3 {
+      color: #5b21b6;
+      margin-bottom: 8px;
+    }
+
+    .note-card p {
+      line-height: 1.6;
+      color: #555;
+    }
+
+    button {
+      border: none;
+      background: #111827;
+      color: white;
+      padding: 11px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      margin-top: 30px;
+      color: #666;
+    }
+
+    /* Dark Mode */
+
+    body.dark {
+      background: #111827;
+      color: white;
+    }
+
+    body.dark .subject,
+    body.dark .note-card,
+    body.dark .search {
+      background: #1f2937;
+      color: white;
+    }
+
+    body.dark .note-card p {
+      color: #d1d5db;
+    }
+
+    body.dark .note-card h3 {
+      color: #c4b5fd;
+    }
+
+    .dark-btn {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 20px;
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>📚 WB Class 9 Notes</h1>
+    <p>Study Smart • Learn Better • Score Higher</p>
+  </header>
+
+  <div class="container">
+
+    <input
+      type="text"
+      id="search"
+      class="search"
+      placeholder="🔍 Search Notes..."
+      onkeyup="searchNotes()"
+    >
+
+    <h2>📖 Subjects</h2>
+
+    <div class="subjects">
+
+      <div class="subject">
+        <div class="icon">📘</div>
+        <h3>বাংলা</h3>
+      </div>
+
+      <div class="subject">
+        <div class="icon">🇬🇧</div>
+        <h3>English</h3>
+      </div>
+
+      <div class="subject">
+        <div class="icon">➗</div>
+        <h3>গণিত</h3>
+      </div>
+
+      <div class="subject">
+        <div class="icon">⚛️</div>
+        <h3>ভৌতবিজ্ঞান</h3>
+      </div>
+
+      <div class="subject">
+        <div class="icon">🧬</div>
+        <h3>জীবনবিজ্ঞান</h3>
+      </div>
+
+      <div class="subject">
+        <div class="icon">🌍</div>
+        <h3>ভূগোল</h3>
+      </div>
+
+      <div class="subject">
+        <div class="icon">🏛️</div>
+        <h3>ইতিহাস</h3>
+      </div>
+
+    </div>
+
+    <section class="notes">
+
+      <h2>📝 Latest Notes</h2>
+
+      <div class="note-card">
+        <h3>🌍 Geography — Chapter 1</h3>
+        <p>
+          এখানে তোমার Geography-এর গুরুত্বপূর্ণ notes লিখতে পারো।
+          Chapter-এর সংক্ষিপ্ত প্রশ্ন, সংজ্ঞা এবং গুরুত্বপূর্ণ তথ্য যোগ করো।
+        </p>
+        <button onclick="alert('Add your Geography notes here!')">
+          Read More
+        </button>
+      </div>
+
+      <div class="note-card">
+        <h3>🏛️ History — Important Questions</h3>
+        <p>
+          এখানে History-এর গুরুত্বপূর্ণ প্রশ্ন ও উত্তর যোগ করতে পারো।
+        </p>
+        <button onclick="alert('Add your History notes here!')">
+          Read More
+        </button>
+      </div>
+
+      <div class="note-card">
+        <h3>🧬 Life Science — MCQ</h3>
+        <p>
+          এখানে Chapter-wise MCQ এবং practice questions যোগ করতে পারো।
+        </p>
+        <button onclick="alert('Add your MCQ here!')">
+          Practice
+        </button>
+      </div>
+
+    </section>
+
+  </div>
+
+  <button class="dark-btn" onclick="toggleDark()">🌙</button>
+
+  <footer>
+    © 2026 WB Class 9 Notes | Made for Students 📚
+  </footer>
+
+  <script>
+
+    function toggleDark() {
+      document.body.classList.toggle("dark");
+    }
+
+    function searchNotes() {
+
+      let input =
+        document.getElementById("search").value.toLowerCase();
+
+      let cards =
+        document.querySelectorAll(".note-card");
+
+      cards.forEach(function(card) {
+
+        let text =
+          card.innerText.toLowerCase();
+
+        if (text.includes(input)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+
+      });
+
+    }
+
+  </script>
+
+</body>
+</html> |# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
